@@ -29,7 +29,7 @@ def setup_key_db():
         print(f"❌ Database connection failed: {e}")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Hello Boss! Send /genkey <days> to generate a Myra access key.\nExample: /genkey 30")
+    await update.message.reply_text("Hello Boss! Send /genkey <days> to generate a jarvis access key.\nExample: /genkey 30")
 
 async def genkey(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -40,7 +40,7 @@ async def genkey(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         days = int(context.args[0])
         random_str = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
-        key = f"MYRA-{random_str}"
+        key = f"jarvis-{random_str}"
         
         conn = psycopg2.connect(DB_URL)
         cursor = conn.cursor()
