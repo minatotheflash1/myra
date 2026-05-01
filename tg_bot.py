@@ -40,7 +40,7 @@ async def genkey(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         days = int(context.args[0])
         random_str = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
-        key = f"jarvis-{random_str}"
+        key = f"JARVIS-{random_str}"
         
         conn = psycopg2.connect(DB_URL)
         cursor = conn.cursor()
